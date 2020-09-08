@@ -1,0 +1,88 @@
+html {
+  background-color: var(--vscode-editor-background);
+}
+
+body {
+  background-color: var(--vscode-editor-background);
+  color: var(--vscode-editor-foreground);
+  font-weight: var(--vscode-font-weight);
+}
+
+input::placeholder {
+  color: var(--vscode-input-placeholderForeground) !important;
+  opacity: 1;
+}
+
+.input[type="text"], .input[type="search"] {
+  background-color: var(--vscode-input-background);
+  border: 1px solid var(--vscode-input-border, var(--vscode-settings-textInputBorder, black));
+  color: var(--vscode-input-foreground);
+  height: inherit;
+  min-width: 225px;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+.navbar {
+  align-content: center;
+  background-color: var(--vscode-editor-background);
+  display: flex !important;
+  justify-content: space-between;
+}
+
+.navbar-buttons {
+  white-space: nowrap;
+}
+
+.control.has-icons-left.has-icons-left .icon.is-left {
+  color: var(--vscode-input-placeholderForeground);
+}
+
+.control.has-icons-left .input:focus~.icon {
+  color: var(--vscode-input-foreground);
+}
+
+/* TABLE */
+
+.table {
+  background-color: var(--vscode-editor-background);
+  color: var(--vscode-input-foreground);
+}
+
+.table thead th {
+  color: var(--vscode-settings-headerForeground);
+}
+
+.table tr, .table th, .table td {
+  border-color: var(--vscode-notebook-cellBorderColor);
+  vertical-align: middle ;
+}
+
+th.is-current-sort {
+  border-color: var(--vscode-notebook-cellBorderColor) !important;
+}
+
+.table tr.is-selected {
+  background-color: var(--vscode-list-hoverBackground);
+}
+
+.table tr.is-selected td, .table tr.is-selected th {
+  border-color: inherit;
+}
+
+/* CHECKBOX */
+
+.b-checkbox.checkbox input[type=checkbox]+.check {
+  background-color: var(--vscode-checkbox-background);
+  border-color: var(--vscode-checkbox-border);
+}
+
+.b-checkbox.checkbox input[type=checkbox]:focus+.check {
+  box-shadow: none !important; 
+}
+
+.dialog, .modal {
+  color: #4a4a4a;
+}

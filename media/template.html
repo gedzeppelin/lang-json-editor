@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/buefy/dist/buefy.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/5.3.45/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/buefy/dist/buefy.min.css">
+  <link rel="stylesheet" href="$styles.css">
+
+  <title>Language JSON editor</title>
+</head>
+
+<body class="has-spaced-navbar-fixed-top">
+  <div id="app">
+
+    <nav class="navbar is-fixed-top is-spaced">
+      <b-input class="mr-2" placeholder="Search" type="search" icon="magnify" v-model="search"></b-input>
+
+      <div class="ml-2 navbar-buttons">
+        <b-button class="mr-2" type="is-info" icon-left="sort-alphabetical-ascending" @click="sortRows">Sort</b-button>
+        <b-button class="mr-2" type="is-primary" icon-left="plus" @click="addRow">Add</b-button>
+        <b-button class="mr-2" type="is-success" icon-left="content-save" @click="saveRows">Save</b-button>
+
+        <b-dropdown :disabled="!hasSelection" ref="dropdown" position="is-bottom-left" aria-role="list">
+          <button :disabled="!hasSelection" class="button is-info" slot="trigger" role="button">
+            <b-icon icon="dots-vertical"></b-icon>
+          </button>
+
+          <b-dropdown-item aria-role="listitem" @click="deleteRows">Delete</b-dropdown-item>
+          <b-dropdown-item aria-role="listitem" @click="keysToUpper"><i>Key</i> to upper case</b-dropdown-item>
+          <b-dropdown-item aria-role="listitem" @click="allToUpper"><i>All</i> values to upper case</b-dropdown-item>
+          <b-dropdown-item v-for="(metadata, idx) in metadataArray" :key="idx" aria-role="listitem"
+            @click="someToUpper(metadata.langCode)">
+            <i>{{ metadata.langCode }}</i> value to upper case
+          </b-dropdown-item>
+        </b-dropdown>
+      </div>
+    </nav>
+
+    <!-- default-sort="key" default-sort-direction="asc"  -->
+
+    <b-table :data="rowArray" :checked-rows.sync="selectionArray" :mobile-cards="false" @dragstart="dragstart" @drop="drop"
+      @dragover="dragover" @dragleave="dragleave" checkable draggable>
+      <b-table-column label="Key" width="250" v-slot="props" centered>
+        <b-input v-model="props.row.key" placeholder="Key"></b-input>
+      </b-table-column>
+
+      <b-table-column v-for="(metadata, idx) in metadataArray" :key="idx" :label="metadata.langCode" v-slot="props" centered>
+        <b-input v-model="props.row[metadata.langCode]" :placeholder="metadata.langCode"></b-input>
+      </b-table-column>
+    </b-table>
+
+  </div>
+
+  <script src="$index.js"></script>
+</body>
+
+</html>
