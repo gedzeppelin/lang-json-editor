@@ -4,9 +4,11 @@
 	"description": "Visual Studio Code extension to edit JSON language (i18n) files",
 	"version": "0.0.1",
 	"publisher": "gedzeppelin",
+	"repository": "https://github.com/gedzeppelin/lang-json-editor",
 	"engines": {
 		"vscode": "^1.48.0"
 	},
+	"license": "GPL-3.0",
 	"categories": [
 		"Other"
 	],
