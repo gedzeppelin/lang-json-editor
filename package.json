@@ -1,7 +1,8 @@
 {
 	"name": "lang-json-editor",
-	"displayName": "lang-json-editor",
+	"displayName": "Language JSON editor",
 	"description": "Visual Studio Code extension to edit JSON language (i18n) files",
+	"icon": "media/favicon.ico",
 	"version": "0.0.1",
 	"publisher": "gedzeppelin",
 	"repository": "https://github.com/gedzeppelin/lang-json-editor",
